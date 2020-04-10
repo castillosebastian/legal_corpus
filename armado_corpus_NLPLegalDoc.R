@@ -133,13 +133,12 @@ corpus_clean <- corpus_clean %>%
 corpus_clean <- corpus_clean %>% 
   rename(textos_fallo = textos_completos)
 
-
 corpus_clean <- corpus_clean %>% 
   select(-textos_raw)
 
 colnames(corpus_clean)
 
 # Guardar data frame corpus
-write.table(corpus_clean, "~/R/nlp_legal_corpus/corpus_clean.csv", 
-            col.names = T, row.names = F, sep = ",")
+write.table(corpus_clean, "~/R/legal_corpus/corpus_clean.csv", 
+            col.names = T, row.names = F, sep = "\t")
 
