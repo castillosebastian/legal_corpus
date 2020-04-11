@@ -141,4 +141,6 @@ colnames(corpus_clean)
 # Guardar data frame corpus
 write.table(corpus_clean, "~/R/legal_corpus/corpus_clean.csv", 
             col.names = T, row.names = F, sep = "\t")
+write.table(corpus_clean, "~/R/legal_corpus/corpus_clean.txt", 
+            col.names = T, row.names = F, sep = "\t")
 
