@@ -141,6 +141,13 @@ colnames(corpus_clean)
 # Guardar data frame corpus
 write.table(corpus_clean, "~/R/legal_corpus/corpus_clean.csv", 
             col.names = T, row.names = F, sep = "\t")
-write.table(corpus_clean, "~/R/legal_corpus/corpus_clean.txt", 
-            col.names = T, row.names = F, sep = "\t")
 
+corpus_textosfallo <- corpus_clean %>% select(indice, textos_fallo)
+corpus_fallosmetdat <- corpus_clean %>% select(-textos_fallo)
+
+# Guardar json
+#install.packages("remotes")
+#remotes::install_github("skgrange/threadr")
+library(threadr)
+write_json(corpus_fallosmetdat, "~/R/legal_corpus/corpus_fallosmetdat.json")
+write_json(corpus_textosfallo, "~/R/legal_corpus/corpus_textosfallos.json")
